@@ -22,7 +22,10 @@ export const CustomerForm: React.FC<CustomerFormProps> = ({
       .required("Email is required"),
 
     Phone: Yup.string()
-      .matches(/^(?:\+20|0020)?1[0-2]\d{8}$/, "Invalid phone number format")
+      .matches(
+        /^\+2(010|011|012|015)[0-9]{8}$/,
+        "Phone number must be an Egyptian phone number"
+      )
       .required("Phone number is required"),
 
     BillingAddress: Yup.string()
